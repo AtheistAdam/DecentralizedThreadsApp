@@ -33,5 +33,8 @@ android.api = 29
 # Android NDK version to use
 android.ndk = 21b
 
+# Specify a stable Build Tools version to avoid license issues
+android.build_tools_version = 30.0.3
+
 # Use private storage (True) or public (False)
 android.private_storage = True
