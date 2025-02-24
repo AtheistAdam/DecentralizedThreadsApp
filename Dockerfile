@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y \
 # Upgrade pip and install Buildozer
 RUN pip3 install --upgrade pip && pip3 install buildozer
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /home/buildozer/yourproject
 
-# Use a shell command to pipe "y" into buildozer
+# Use a shell command to automatically pipe "y" into Buildozer
 CMD ["sh", "-c", "echo y | buildozer --allow-root -v android debug"]
