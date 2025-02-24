@@ -38,3 +38,6 @@ android.build_tools_version = 30.0.3
 
 # Use private storage (True) or public (False)
 android.private_storage = True
+
+# Automatically accept Android SDK licenses
+android.accept_licenses = True
