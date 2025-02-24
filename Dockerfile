@@ -11,8 +11,9 @@ RUN apt-get update && apt-get install -y \
 # Upgrade pip and install Buildozer
 RUN pip3 install --upgrade pip && pip3 install buildozer
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /home/buildozer/yourproject
 
-# Use a shell command to automatically pipe "y" into Buildozer
-CMD ["sh", "-c", "echo y | buildozer --allow-root -v android debug"]
+# Clean any previous builds (which forces re‑download of the Android SDK) and then build the APK,
+# piping "y" to bypass any interactive license prompts.
+CMD ["sh", "-c", "echo y | buildozer android clean && echo y | buildozer --allow-root -v android debug"]
