@@ -14,6 +14,6 @@ RUN pip3 install --upgrade pip && pip3 install buildozer
 # Set the working directory inside the container
 WORKDIR /home/buildozer/yourproject
 
-# Clean any previous builds (which forces re‑download of the Android SDK) and then build the APK,
-# piping "y" to bypass any interactive license prompts.
-CMD ["sh", "-c", "echo y | buildozer android clean && echo y | buildozer --allow-root -v android debug"]
+# Remove any previous build cache, clean the Android SDK, then build the APK,
+# piping "y" to automatically accept licenses.
+CMD ["sh", "-c", "rm -rf .buildozer && echo y | buildozer android clean && echo y | buildozer --allow-root -v android debug"]
